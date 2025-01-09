@@ -1,0 +1,25 @@
+[project]
+name = "keyrings-onepassword"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Charles de Freitas",email = "charles.defreitas@risqcapital.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "keyring (>=25.6.0,<26.0.0)",
+    "onepassword-sdk (>=0.1.5,<0.2.0)"
+]
+
+[tool.poetry]
+packages = [{include = "keyrings", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.entry-points."keyring.backends"]
+onepassword = "keyrings.onepassword.keyring:OnePasswordKeyring"
+
