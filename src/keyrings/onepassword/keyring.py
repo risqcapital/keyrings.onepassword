@@ -1,18 +1,20 @@
 # define a new keyring class which extends the KeyringBackend
 import asyncio
 import os
-from keyrings.onepassword.version import __version__
 
-from keyring.backend import KeyringBackend
 from jaraco.classes import properties
+from keyring.backend import KeyringBackend
+
 from onepassword.client import Client
+
+from .version import __version__
 
 _AUTH_ENV_VAR = "OP_SERVICE_ACCOUNT_TOKEN"
 _BACKEND_VAULT_ENV_VAR = "OP_KEYRING_BACKEND_VAULT"
 _DEFAULT_KEYRING_VAULT = "keyring"
 
 
-async def get_client():
+async def get_client() -> Client:
     return await Client.authenticate(
         auth=os.getenv(_AUTH_ENV_VAR),
         integration_name="keyrings.onepassword",
@@ -34,15 +36,14 @@ async def vault_exists() -> bool:
 
 
 class OnePasswordKeyring(KeyringBackend):
-    """A keyring which uses a 1Password vault as the backend.
-    """
+    """A keyring which uses a 1Password vault as the backend."""
 
     def __init__(self) -> None:
         super().__init__()  # type: ignore[no-untyped-call]
 
     @classmethod
     @properties.classproperty
-    def priority(cls):
+    def priority(cls) -> float:
         if not os.getenv(_AUTH_ENV_VAR):
             raise RuntimeError(
                 f"Requires onepassword service account token to be set via {_AUTH_ENV_VAR}"
