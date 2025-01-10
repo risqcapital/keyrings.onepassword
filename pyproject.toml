@@ -3,7 +3,7 @@ name = "keyrings.onepassword"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Charles de Freitas",email = "charles.defreitas@risqcapital.com"}
+    {name = "RISQ Capital", email = "dev@risqcapital.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.11"
