@@ -48,21 +48,21 @@ class OnePasswordKeyring(KeyringBackend):
             raise RuntimeError(
                 f"Requires onepassword service account token to be set via {_AUTH_ENV_VAR}"
             )
-        # TODO: Not sure if we keep this lookup of the vault here, since it slows down initialisation
-        if not asyncio.run(vault_exists()):
-            raise RuntimeError(
-                f"Cannot find 1Password vault {get_backend_vault_name()}"
-            )
-
         return 20
 
     @property
     def vault(self) -> str:
         return os.getenv(_BACKEND_VAULT_ENV_VAR, _DEFAULT_KEYRING_VAULT)
 
-    async def _get_password(self, service: str) -> str:
-        client = await get_client()
-        return await client.secrets.resolve(f"op://{self.vault}/{service}/password")
+    async def _get_password(self, service: str) -> str | None:
+        secret_reference = f"op://{self.vault}/{service}/password"
+        try:
+            client = await get_client()
+            return await client.secrets.resolve(secret_reference)
+        # TODO: Catch 1Password specific errors only?
+        except Exception as ex:
+            print(ex)
+            return None
 
     def set_password(self, service: str, username: str, password: str) -> None:
         pass
