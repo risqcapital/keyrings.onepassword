@@ -1,4 +1,3 @@
-# define a new keyring class which extends the KeyringBackend
 import asyncio
 import os
 
