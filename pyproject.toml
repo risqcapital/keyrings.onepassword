@@ -1,0 +1,59 @@
+[project]
+name = "keyrings.onepassword"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Charles de Freitas",email = "charles.defreitas@risqcapital.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "keyring (>=25.6.0,<26.0.0)",
+    "onepassword-sdk (>=0.1.5,<0.2.0)"
+]
+
+[tool.poetry]
+packages = [{include = "keyrings", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.9.0"
+mypy = "^1.14.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.entry-points."keyring.backends"]
+onepassword = "keyrings.onepassword.keyring:OnePasswordKeyring"
+
+[tool.ruff.lint]
+extend-select = [
+    "W",  # pyflakes warnings
+    "I", # isort
+    "N", # pep8 naming
+    "UP", # pyupgrade
+    "ANN", # flake8 annotations
+    "ERA", # eradicate
+    "PL", # pylint
+    "TRY", # tryceratops
+    "RUF", # ruf
+]
+extend-ignore = [
+    "ANN101", # https://docs.astral.sh/ruff/rules/missing-type-self/
+    "ERA001", # https://docs.astral.sh/ruff/rules/commented-out-code/
+    "ANN002", # https://docs.astral.sh/ruff/rules/missing-type-args/
+    "ANN003", # https://docs.astral.sh/ruff/rules/missing-type-kwargs/
+    "ANN401", # https://docs.astral.sh/ruff/rules/any-type/
+    "PLR0913", # https://docs.astral.sh/ruff/rules/too-many-arguments/
+    "TRY003", # https://docs.astral.sh/ruff/rules/raise-vanilla-args/
+    "ANN102", # https://docs.astral.sh/ruff/rules/missing-type-cls/
+    "PLE1205", # https://docs.astral.sh/ruff/rules/logging-too-many-args/
+    "PLR2004", # https://docs.astral.sh/ruff/rules/magic-value-comparison/
+    "PLR0911", # https://docs.astral.sh/ruff/rules/too-many-return-statements/
+    "PLR0912", # https://docs.astral.sh/ruff/rules/too-many-branches/
+    "TRY400", # https://docs.astral.sh/ruff/rules/error-instead-of-exception/
+]
+
+[tool.mypy]
+ignore_missing_imports = true
