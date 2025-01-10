@@ -1,5 +1,5 @@
 [project]
-name = "keyrings-onepassword"
+name = "keyrings.onepassword"
 version = "0.1.0"
 description = ""
 authors = [
