@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/risqcapital/keyrings.onepassword/compare/v0.2.0...v0.3.0) (2025-01-14)
+
+
+### Features
+
+* Return empty string if username is None ([#7](https://github.com/risqcapital/keyrings.onepassword/issues/7)) ([dfdcf69](https://github.com/risqcapital/keyrings.onepassword/commit/dfdcf696ceeb72ac31d1542026b2ff9afea2f08a))
+
+
+### Bug Fixes
+
+* check for service token before trying to create Client ([#6](https://github.com/risqcapital/keyrings.onepassword/issues/6)) ([f761597](https://github.com/risqcapital/keyrings.onepassword/commit/f761597f3e3bf1402e317dfa2e2356c1db410720))
+
 ## [0.2.0](https://github.com/risqcapital/keyrings.onepassword/compare/v0.1.0...v0.2.0) (2025-01-10)
 
 
