@@ -8,9 +8,7 @@ class OnePasswordCredential(Credential):
 
     @property
     def username(self) -> str:
-        if self._username is None:
-            raise ValueError("credential has no username")
-        return self._username
+        return self._username or ""
 
     @property
     def password(self) -> str:
