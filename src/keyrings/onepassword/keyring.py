@@ -40,9 +40,8 @@ class OnePasswordKeyring(KeyringBackend):
         super().__init__()  # type: ignore[no-untyped-call]
         self.client = asyncio.run(get_client())
 
-    @classmethod
     @properties.classproperty
-    def priority(cls) -> float:
+    def priority(cls) -> float:  # noqa: N805
         if not os.getenv(_AUTH_ENV_VAR):
             raise RuntimeError(
                 f"Requires onepassword service account token to be set via {_AUTH_ENV_VAR}"
