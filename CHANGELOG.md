@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/risqcapital/keyrings.onepassword/compare/v0.3.0...v0.3.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* Drop classmethod from priority ([#9](https://github.com/risqcapital/keyrings.onepassword/issues/9)) ([2baa1c4](https://github.com/risqcapital/keyrings.onepassword/commit/2baa1c4954a2b5dceea918fa7722a0749fe91808))
+
 ## [0.3.0](https://github.com/risqcapital/keyrings.onepassword/compare/v0.2.0...v0.3.0) (2025-01-14)
 
 
