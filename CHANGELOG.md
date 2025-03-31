@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/risqcapital/keyrings.onepassword/compare/v0.3.1...v0.4.0) (2025-03-31)
+
+
+### Features
+
+* Update priority to 7 ([#11](https://github.com/risqcapital/keyrings.onepassword/issues/11)) ([dfe998b](https://github.com/risqcapital/keyrings.onepassword/commit/dfe998be56acc3fdd42627e92200a8425b10b0c4))
+
 ## [0.3.1](https://github.com/risqcapital/keyrings.onepassword/compare/v0.3.0...v0.3.1) (2025-02-13)
 
 
