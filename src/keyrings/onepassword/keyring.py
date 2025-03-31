@@ -46,7 +46,7 @@ class OnePasswordKeyring(KeyringBackend):
             raise RuntimeError(
                 f"Requires onepassword service account token to be set via {_AUTH_ENV_VAR}"
             )
-        return 20
+        return 7
 
     @property
     def vault(self) -> str:
